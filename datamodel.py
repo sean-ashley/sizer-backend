@@ -12,7 +12,8 @@ ma = Marshmallow(app)
 #create shoe model
 
 class Shoe(db.Model):
-
+    __tablename__ = "shoe"
+    __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
     brand = db.Column(db.String(100))
@@ -37,6 +38,8 @@ class Shoe(db.Model):
 
 #create user data model
 class Users(db.Model):
+    __tablename__ = "shoe"
+    __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(15), unique=True)

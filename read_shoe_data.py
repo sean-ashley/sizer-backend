@@ -1,7 +1,7 @@
 import pandas as pd
 from datamodel import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, user_schema, users_schema
 
-df = pd.read_csv("sizer-backend/shoe_data.csv")
+df = pd.read_csv("shoe_data.csv")
 df.columns = ['shoe_name', 'brand', 'size_shift', 'price', 'width_fitting']
 # print(df)
 

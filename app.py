@@ -2,12 +2,12 @@ from flask import Flask, request, jsonify
 from datamodel import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, user_schema, users_schema
 
 
-
+#ping the network to make sure its working
 @app.route("/ping", methods =["GET"])
 def ping():
     return jsonify("ping :)")
 
-
+#add user to the database
 @app.route("/adduser", methods = ["POST"])
 def adduser():
     username = request.json['username']
@@ -22,6 +22,7 @@ def adduser():
 
     return user_schema.jsonify(new_user)
 
+#add shoe to the database
 @app.route("/addshoe", methods = ["POST"])
 def addshoe():
     name = request.json['name']

@@ -8,7 +8,7 @@ engine = create_engine(conn_str)
 
 try:
     #connect to engine
-    #connection = engine.connect()
+    connection = engine.connect()
     print("Connected")
 except:
     print("Connection failed")
