@@ -26,7 +26,8 @@ def generate_recommenations(json_user):
     "max_price":query.max_price
     }
 
-    low_length_range = 
+    low_length_range = query.length - 0.5 if query.like_smaller_fitting_shoes else query.length - 0.2
+    h
 
     #read in shoe data as a pd dataframe
     shoes = load_shoe()

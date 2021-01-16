@@ -19,6 +19,12 @@ def load_users():
     users = pd.read_sql_table("users", connection)
     return users
 
-size_factors = {
-    
-}
+
+def shoe_conversions():
+    """
+        
+    load in nike data from csv as dataframe
+    """
+
+    return pd.read_csv("shoe_conversion.csv")
+ 
