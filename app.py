@@ -14,8 +14,12 @@ def adduser():
     length = request.json['length']
     width = request.json['width']
     gender = request.json['gender']
+    like_bigger_fitting_shoes = request.json['like_bigger_fitting_shoes']
+    like_smaller_fitting_shoes = request.json['like_smaller_fitting_shoes']
+    min_price = request.json['min_price']
+    max_price = requset.json['max_price']
 
-    new_user = Users(username, length, width, gender)
+    new_user = Users(username, length, width, gender, like_bigger_fitting_shoes, like_smaller_fitting_shoes, min_price, max_price)
 
     db.session.add(new_user)
     db.session.commit()
@@ -45,6 +49,10 @@ def addshoe():
 # Get All Users
 @app.route('/users', methods=['GET'])
 def get_products():
+    """
+    get all the products from the database in json form
+    """
+
   
   all_users = Users.query.all()
   result = users_schema.dump(all_users)

@@ -50,11 +50,20 @@ class Users(db.Model):
     #m for male , f for female, n for non-binary
     gender = db.Column(db.String(1))
 
-    def __init__(self, username, length, width, gender):
+    like_bigger_fitting_shoes = db.Column(db.Bool)
+    like_smaller_fitting_shoes = db.Column(db.Bool)
+    min_price = db.Column(db.Float)
+    max_price = db.Column(db.Float)
+
+    def __init__(self, username, length, width, gender, like_bigger_fitting_shoes, like_smaller_fitting_shoes, min_price, max_price):
         self.username = username
         self.length = length
         self.width = width
         self.gender = gender
+        self.like_bigger_fitting_shoes = like_bigger_fitting_shoes
+        self.like_smaller_fitting_shoes = like_smaller_fitting_shoes
+        self.min_price = min_price
+        self.max_price = max_price
      
 
 
@@ -68,7 +77,7 @@ class ShoeSchema(ma.Schema):
 
 class UsersSchema(ma.Schema):
   class Meta:
-    fields = ("id", "username", "length", "width", "gender")
+    fields = ("id", "username", "length", "width", "gender", "like_bigger_fitting_shoes", "like_smaller_fitting_shoes", "min_price", "max_price")
 
 shoe_schema = ShoeSchema()
 shoes_schema = ShoeSchema(many=True)
