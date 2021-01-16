@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from datamodel import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, users_schema, users_schema
+from datamodel import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, user_schema, users_schema
 
 
 
@@ -33,4 +33,3 @@ def get_products():
 
 if __name__ == 'main':
     app.run(debug = True)
-
