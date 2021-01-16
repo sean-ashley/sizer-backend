@@ -22,6 +22,25 @@ def adduser():
 
     return user_schema.jsonify(new_user)
 
+@app.route("/addshoe", methods = ["POST"])
+def addshoe():
+    name = request.json['name']
+    brand = request.json['brand']
+    price = request.json['price']
+    size_shift = request.json['size_shift']
+    inches_per_size = request.json['inches_per_size']
+    name = request.json['width_fitting']
+
+
+    new_shoe = Shoe(name, brand, price, size_shift, inches_per_size, width_fitting)
+
+    db.session.add(new_shoe)
+    db.session.commit()
+
+    return user_schema.jsonify(new_shoe)
+
+
+
 # Get All Users
 @app.route('/users', methods=['GET'])
 def get_products():
