@@ -17,7 +17,7 @@ def adduser():
     like_bigger_fitting_shoes = request.json['like_bigger_fitting_shoes']
     like_smaller_fitting_shoes = request.json['like_smaller_fitting_shoes']
     min_price = request.json['min_price']
-    max_price = requset.json['max_price']
+    max_price = request.json['max_price']
 
     new_user = Users(username, length, width, gender, like_bigger_fitting_shoes, like_smaller_fitting_shoes, min_price, max_price)
 
@@ -54,9 +54,9 @@ def get_products():
     """
 
   
-  all_users = Users.query.all()
-  result = users_schema.dump(all_users)
-  return jsonify(result)  
+    all_users = Users.query.all()
+    result = users_schema.dump(all_users)
+    return jsonify(result)  
 
 
 if __name__ == 'main':

@@ -19,3 +19,6 @@ def load_users():
     users = pd.read_sql_table("users", connection)
     return users
 
+size_factors = {
+    
+}

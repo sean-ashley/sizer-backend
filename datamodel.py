@@ -38,7 +38,7 @@ class Shoe(db.Model):
 
 #create user data model
 class Users(db.Model):
-    __tablename__ = "shoe"
+    __tablename__ = "users"
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -50,8 +50,8 @@ class Users(db.Model):
     #m for male , f for female, n for non-binary
     gender = db.Column(db.String(1))
 
-    like_bigger_fitting_shoes = db.Column(db.Bool)
-    like_smaller_fitting_shoes = db.Column(db.Bool)
+    like_bigger_fitting_shoes = db.Column(db.Boolean)
+    like_smaller_fitting_shoes = db.Column(db.Boolean)
     min_price = db.Column(db.Float)
     max_price = db.Column(db.Float)
 
