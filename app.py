@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from datamodel import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, user_schema, users_schema
-
+from matcher import generate_recommendations
 
 #ping the network to make sure its working
 @app.route("/ping", methods =["GET"])
@@ -12,6 +12,7 @@ def ping():
 def adduser():
     username = request.json['username']
     length = request.json['length']
+#generate shoe recommendations
     width = request.json['width']
     gender = request.json['gender']
     like_bigger_fitting_shoes = request.json['like_bigger_fitting_shoes']
@@ -56,8 +57,26 @@ def get_products():
   
     all_users = Users.query.all()
     result = users_schema.dump(all_users)
-    return jsonify(result)  
+    return jsonify(result)
+
+
+
+#generate shoe recommendations
+@app.route('/recommendshoes', methods = ['POST'])
+def give_recommendations():
+    username = request.json["username"]
+
+    
+    recommendation_df = generate_recommendations(username)
+
+
+
+
+    return recommendation_df.to_json()
+
+
 
 
 if __name__ == 'main':
     app.run(debug = True)
+

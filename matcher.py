@@ -3,6 +3,42 @@ import pandas as pd
 from datamodel import Shoe, Users,db
 from read_data import *
 import numpy as np
+from json import loads
+
+def add_width_measurment(shoes):
+
+    """
+
+    filter out shoes by recommended width
+    """
+    # create the width conversion dictionary
+    width_conversion = {  "xn": "D", "n": "D", "r": "D", "w": "EE", "xw": "EE" }
+
+    width_df = pd.read_csv("shoe_width.csv")
+
+
+    #map values
+    shoes["width_fitting"] = shoes["width_fitting"].map(width_conversion)
+    
+    width_df.index = width_df["US Size"]
+    width_df = width_df.drop(columns = ["US Size"])
+    print(width_df)
+
+    
+    lst = []
+    for width,size in zip(shoes["width_fitting"],shoes["US Size"]):
+        val = width_df.loc[size][width]
+        lst.append(val)
+
+    shoes["width_measurement"] = lst 
+
+
+    return shoes
+ 
+
+
+
+
 
 
 def best_shoe_size(shoe_size_cm, dataframe, foot_size_cm, gender_size):
@@ -32,13 +68,36 @@ def best_shoe_size(shoe_size_cm, dataframe, foot_size_cm, gender_size):
 
     return best_fit
 
-def generate_recommendations(json_user):
+def best_shoe_width(dataframe,foot_width):
+    
+    series = dataframe["width_measurement"]
+
+    #convert to numpy array
+    arr = series.to_numpy()
+
+    #subtract our size and take the absolute value
+
+    sub_arr = abs(arr - foot_width)
+
+    #take the minimum index
+    min_index = np.argmin(sub_arr)
+
+    #retrieve what size that is associated with
+
+    #get original length value back
+    original_width = arr[min_index]
+
+    return original_width
+
+
+
+def generate_recommendations(username):
     """
     read in sql query containing user, and generate a np array with their profile.
     """
     
     #get username out of json
-    username = json_user["username"]
+ 
     #look up user in database
     query = Users.query.filter_by(username=username).first()
     #convert query to dict
@@ -53,9 +112,6 @@ def generate_recommendations(json_user):
     "min_price":query.min_price,
     "max_price":query.max_price
     }
-
-    # create the width conversion dictionary
-    width_conversion = {  "xn": "D", "n": "D", "r": "D", "w": "EE", "xw": "EE" }
 
     #create proper fit for shoe
     foot_size = query.length + 1.5
@@ -88,26 +144,26 @@ def generate_recommendations(json_user):
     #add the sizes associated with each shoe
     best_shoes["US Size"] = best_shoes["size_shift"] + best_size
 
-    print(best_shoes)
+    #print(best_shoes)
 
-    #import width conversion chart
-    #width_chart = mens_shoe_width() if query.gender == 'm' else womens_shoe_width()
+    #add width_measurement to the df
+    best_shoes = add_width_measurment(best_shoes)
+
+
+    #filter for best width shoes
+    best_width = best_shoe_width(best_shoes,query.width)
+
+    best_shoes = best_shoes[best_shoes["width_measurement"] == best_width]
+
+    best_shoes.drop(columns = ["id","inches_per_size","width_fitting","width_measurement"],inplace=True)
+    best_shoes.reset_index(inplace = True)
+    return best_shoes
+
+
     
 
-    #get correct size row
-    #width_row = width_chart[width_chart["US SIZE"] == best_size]
-    #print(width_row)
-    
-    #drop all cols not in width range
-    #drop_cols = lambda col : width_row.drop(columns = [col.name], inplace=True, axis = 1) if (low_width_range <= width_row.col <= high_width_range) else NoneType
-    
-    #width_row.apply(func = drop_cols)
-    #return "hi"
-    #finally recommend shoes later
 
 
-
-print(generate_recommendations({"username":"shivamsh"}))
 
 
 

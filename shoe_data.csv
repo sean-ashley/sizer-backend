@@ -1,22 +1,22 @@
-Harden Volume 1,Adidas,0.5,139.99,w
-Harden Stepback,Adidas,0.5,79.99,r
-Curry 8,Under Armour,-0.5,159.99,n
-PG 4,Nike ,-0.5,109.99,n
-Air Jordan 35,Jordan ,0,179.99,n
-Air Jordan 32 Low,Jordan ,0,159.99,n
-Kawhi 1,New Balance,0,159.99,r
-Dame 6,Adidas,0.5,109.99,r
-Kyrie 6,Nike ,-0.5,129.99,n
-Air Jordan 34,Jordan ,0,179.99,r
-D Rose 10,Adidas,1,139.99,r
-CP3 12,Jordan ,0,99.99,n
-DON Issue 1,Adidas,0.5,99.99,r
-KD Trey 5 VII,Nike ,0,89.99,n
-Mamba Focus,Nike ,0.5,99.99,xn
-KD 12,Nike ,0,149.99,n
-Kyrie Flytrap 2,Nike ,0,79.99,xn
-Way of Wade 7,Li-Ning,1,164.99,r
-Pro Bounce Low,Adidas,0.5,109.99,r
-KD 11,Nike ,0.5,149.99,n
-Fly Lockdown,Jordan ,0,109.99,r
-Lebron 15 Low,Nike ,0.5,149.99,r
+Harden Volume 1,Adidas,0.5,139.99,w,pictures/harden_v_1.jpg
+Harden Stepback,Adidas,0.5,79.99,r,pictures/adidas-Harden-Stepback.jpeg
+Curry 8,Under Armour,-0.5,159.99,n,pictures/curry_8.jpeg
+PG 4,Nike ,-0.5,109.99,n,pictures/pg-4.png
+Air Jordan 35,Jordan ,0,179.99,n,pictures/air_jordan_35.jpeg
+Air Jordan 32 Low,Jordan ,0,159.99,n,pictures/air-jordan-32.png
+Kawhi 1,New Balance,0,159.99,r,pictures/kawhi-1.png
+Dame 6,Adidas,0.5,109.99,r,pictures/dame-6.png
+Kyrie 6,Nike ,-0.5,129.99,n,pictures/kyrie-6.png
+Air Jordan 34,Jordan ,0,179.99,r,pictures/air_jordan_34.png
+D Rose 10,Adidas,1,139.99,r,pictures/d-rose-10.png
+CP3 12,Jordan ,0,99.99,n,pictures/cp3-12.jpeg
+DON Issue 1,Adidas,0.5,99.99,r,pictures/don-issue-1.png
+KD Trey 5 VII,Nike ,0,89.99,n,pictures/kd-trey.png
+Mamba Focus,Nike ,0.5,99.99,xn,pictures/mamba-focus.png
+KD 12,Nike ,0,149.99,n,pictures/kd-12.jpeg
+Kyrie Flytrap 2,Nike ,0,79.99,xn,pictures/kyrie-2.jpeg
+Way of Wade 7,Li-Ning,1,164.99,r,pictures/way_of_wade.png
+Pro Bounce Low,Adidas,0.5,109.99,r,pictures/pro_bounce.png
+KD 11,Nike ,0.5,149.99,n,pictures/kd-11.jpeg
+Fly Lockdown,Jordan ,0,109.99,r,pictures/fly-lockdown.png
+Lebron 15 Low,Nike ,0.5,149.99,r,pictures/lebron-15.jpeg

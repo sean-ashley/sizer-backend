@@ -5,7 +5,7 @@ import cockroachdb
 import psycopg2
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "cockroachdb://sean:2afSGARmYXSQkEJ@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/snappy-bear-200.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt"
+app.config["SQLALCHEMY_DATABASE_URI"] = "cockroachdb://sean:sizristhebest@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/snappy-bear-200.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
@@ -23,15 +23,18 @@ class Shoe(db.Model):
     inches_per_size = db.Column(db.Float)
     #n for narrow , w for wide , r for regular , xn for extra narrow, xw for extra wide
     width_fitting = db.Column(db.String(2))
+    picture = db.Column(db.String(100))
 
 
-    def __init__(self, name, brand, price, size_shift, inches_per_size, width_fitting):
+    def __init__(self, name, brand, price, size_shift, inches_per_size, width_fitting, picture):
         self.name = name
         self.brand = brand
         self.price = price
         self.size_shift = size_shift
         self.inches_per_size = inches_per_size
         self.width_fitting = width_fitting
+        self.picture = picture
+        
    
 
 
