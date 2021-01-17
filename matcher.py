@@ -8,13 +8,12 @@ from json import loads
 def add_width_measurment(shoes):
 
     """
-
-    filter out shoes by recommended width
+    add an exact width measurement (in cm) to the shoes dataframe
     """
     # create the width conversion dictionary
     width_conversion = {  "xn": "D", "n": "D", "r": "D", "w": "EE", "xw": "EE" }
 
-    width_df = pd.read_csv("shoe_width.csv")
+    width_df = pd.read_csv("data/shoe_width.csv")
 
 
     #map values
@@ -42,6 +41,9 @@ def add_width_measurment(shoes):
 
 
 def best_shoe_size(shoe_size_cm, dataframe, foot_size_cm, gender_size):
+    """
+    Find the shoe size that fits the users foot the best score
+    """
 
     series = dataframe[shoe_size_cm]
 
@@ -69,6 +71,9 @@ def best_shoe_size(shoe_size_cm, dataframe, foot_size_cm, gender_size):
     return best_fit
 
 def best_shoe_width(dataframe,foot_width):
+    """
+    find the shoe width that fits the users foot the best
+    """
     
     series = dataframe["width_measurement"]
 
@@ -93,7 +98,7 @@ def best_shoe_width(dataframe,foot_width):
 
 def generate_recommendations(username):
     """
-    read in sql query containing user, and generate a np array with their profile.
+    read in sql query containing user, and generate a list of shoes to recommend them
     """
     
     #get username out of json

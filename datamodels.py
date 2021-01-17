@@ -12,6 +12,9 @@ ma = Marshmallow(app)
 #create shoe model
 
 class Shoe(db.Model):
+    """
+    SQL table modeling attributes about a shoe
+    """
     __tablename__ = "shoe"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True)
@@ -41,6 +44,10 @@ class Shoe(db.Model):
 
 #create user data model
 class Users(db.Model):
+    """
+    SQL table modeling attributes about a user
+    """
+
     __tablename__ = "users"
     __table_args__ = {'extend_existing': True}
 
@@ -73,7 +80,7 @@ class Users(db.Model):
 
 
 
-
+#create schemas to easily return json data
 class ShoeSchema(ma.Schema):
   class Meta:
     fields = ("id", "name", "brand", "price", "size_shift", "inches_per_size", "width_fitting")

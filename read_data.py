@@ -26,17 +26,17 @@ def shoe_conversions():
     load in nike data from csv as dataframe
     """
 
-    return pd.read_csv("shoe_conversion.csv")
+    return pd.read_csv("data/shoe_conversion.csv")
 
 
 def mens_shoe_width():
 
-    return pd.read_csv("shoe_width.csv")
+    return pd.read_csv("data/shoe_width.csv")
 
 
 def womens_shoe_width():
 
-    return pd.read_csv("womens_shoe_width.csv")
+    return pd.read_csv("data/womens_shoe_width.csv")
 
 
 

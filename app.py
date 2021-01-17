@@ -5,11 +5,17 @@ from matcher import generate_recommendations
 #ping the network to make sure its working
 @app.route("/ping", methods =["GET"])
 def ping():
+    """
+    quickly ping the server to make sure its working with
+    """
     return jsonify("ping :)")
 
 #add user to the database
 @app.route("/adduser", methods = ["POST"])
 def adduser():
+    """
+    add a user to our database
+    """
     username = request.json['username']
     length = request.json['length']
 #generate shoe recommendations
@@ -30,6 +36,10 @@ def adduser():
 #add shoe to the database
 @app.route("/addshoe", methods = ["POST"])
 def addshoe():
+    """ 
+    add a shoe to our database
+    """
+    #get requests from user
     name = request.json['name']
     brand = request.json['brand']
     price = request.json['price']
@@ -37,13 +47,15 @@ def addshoe():
     inches_per_size = request.json['inches_per_size']
     name = request.json['width_fitting']
 
-
+    #create data row
     new_shoe = Shoe(name, brand, price, size_shift, inches_per_size, width_fitting)
 
+    #add that row to the database
     db.session.add(new_shoe)
     db.session.commit()
 
-    return user_schema.jsonify(new_shoe)
+    #return the added shoe
+    return shoe_schema.jsonify(new_shoe)
 
 
 
@@ -64,9 +76,12 @@ def get_products():
 #generate shoe recommendations
 @app.route('/recommendshoes', methods = ['POST'])
 def give_recommendations():
+    """
+    given a user, return all the shoes that fit them properly
+    """
+
     username = request.json["username"]
 
-    
     recommendation_df = generate_recommendations(username)
 
 
