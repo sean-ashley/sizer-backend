@@ -54,6 +54,9 @@ def generate_recommendations(json_user):
     "max_price":query.max_price
     }
 
+    # create the width conversion dictionary
+    width_conversion = {  "xn": "D", "n": "D", "r": "D", "w": "EE", "xw": "EE" }
+
     #create proper fit for shoe
     foot_size = query.length + 1.5
 
