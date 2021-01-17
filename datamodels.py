@@ -5,7 +5,7 @@ import cockroachdb
 import psycopg2
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "cockroachdb://sean:sizristhebest@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/snappy-bear-200.defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt"
+app.config["SQLALCHEMY_DATABASE_URI"] = "cockroachdb://sean:sizristhebest@dopey-bison-8cc.gcp-northamerica-northeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert=dopey-bison-ca.crt"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)

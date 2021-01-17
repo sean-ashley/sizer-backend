@@ -101,14 +101,14 @@ Go to raw, and make sure it is set to JSON.
 In the body, pass a JSON object looking something like this
 ```
     {
-    "username" : "somestring",
-    "length" : "somefloat",
-    "width"  : "somefloat",
-    "gender" : "somestring(1)",
-    "like_bigger_fitting_shoes" : "somebool",
-    "like_smaller_fitting_shoes" : "somebool",
-    "min_price" : "somefloat",
-    "max_price" : "somefloat"
+    "username" : "seanashley",
+    "length" : 28.5,
+    "width"  : 10.5,
+    "gender" : "m",
+    "like_bigger_fitting_shoes" : true,
+    "like_smaller_fitting_shoes" : false,
+    "min_price" : 50,
+    "max_price" : 150
  }
 ```
 Send the postman request and it should return the user, showing that this has succeeded
@@ -123,7 +123,7 @@ Go to raw, and make sure it is set to JSON.
 In the body, pass a JSON object looking something like this
 ```
     {
-    "username" : "somestring"
+    "username" : "seanashley"
     }
  ```
 

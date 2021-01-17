@@ -1,5 +1,5 @@
 import pandas as pd
-from datamodel import Shoe, Users
+from datamodels import Shoe, Users
 from database import connection
 
 def load_shoe():

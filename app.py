@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from datamodel import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, user_schema, users_schema
+from datamodels import app, db, ma, Shoe, Users, shoe_schema, shoes_schema, user_schema, users_schema
 from matcher import generate_recommendations
 
 #ping the network to make sure its working

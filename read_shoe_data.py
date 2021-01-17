@@ -1,5 +1,5 @@
 import pandas as pd
-from datamodel import app, db, ma, Shoe, Users
+from datamodels import app, db, ma, Shoe, Users
 from database import connection
 df = pd.read_csv("data/shoe_data.csv")
 df.columns = ['shoe_name', 'brand', 'size_shift', 'price', 'width_fitting','picture']

@@ -1,6 +1,6 @@
 
 import pandas as pd
-from datamodel import Shoe, Users,db
+from datamodels import Shoe, Users,db
 from read_data import *
 import numpy as np
 from json import loads
