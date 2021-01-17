@@ -27,4 +27,17 @@ def shoe_conversions():
     """
 
     return pd.read_csv("shoe_conversion.csv")
- 
+
+
+def mens_shoe_width():
+
+    return pd.read_csv("shoe_width.csv")
+
+
+def womens_shoe_width():
+
+    return pd.read_csv("womens_shoe_width.csv")
+
+
+
+    
