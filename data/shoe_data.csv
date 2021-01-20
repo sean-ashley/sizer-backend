@@ -1,3 +1,4 @@
+'shoe_name', 'brand', 'size_shift', 'price', 'width_fitting','picture'
 Harden Volume 1,Adidas,0.5,139.99,w,pictures/harden_v_1.jpg
 Harden Stepback,Adidas,0.5,79.99,r,pictures/adidas-Harden-Stepback.jpeg
 Curry 8,Under Armour,-0.5,159.99,n,pictures/curry_8.jpeg

@@ -35,11 +35,6 @@ def add_width_measurment(shoes):
     return shoes
  
 
-
-
-
-
-
 def best_shoe_size(shoe_size_cm, dataframe, foot_size_cm, gender_size):
     """
     Find the shoe size that fits the users foot the best score
@@ -161,11 +156,11 @@ def generate_recommendations(username):
     best_shoes = best_shoes[best_shoes["width_measurement"] == best_width]
 
     best_shoes.drop(columns = ["id","inches_per_size","width_fitting","width_measurement"],inplace=True)
-    best_shoes.reset_index(inplace = True)
+    best_shoes.reset_cindex(inplace = True)
     return best_shoes
 
 
-    
+        
 
 
 
