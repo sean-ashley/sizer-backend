@@ -13,7 +13,7 @@ test_data = {
         "length": 26.2,
         "width": 9.4,
         "gender": 'M',
-        "like_bigger_fitting_shoes": False,
+        "like_bigger_fitting_shoes": True,
         "like_smaller_fitting_shoes": False,
         "min_price": 80,
         "max_price": 150
@@ -62,6 +62,26 @@ test_data = {
         "min_price": 60,
         "max_price": 120
     },
+    "Andrew": {
+        "username": "Andrew",
+        "length": 26,
+        "width": 10,
+        "gender": 'M',
+        "like_bigger_fitting_shoes": True,
+        "like_smaller_fitting_shoes": False,
+        "min_price": 100,
+        "max_price": 200
+    },
+    "Nancy": {
+        "username": "Nancy",
+        "length": 24,
+        "width": 8,
+        "gender": 'F',
+        "like_bigger_fitting_shoes": False,
+        "like_smaller_fitting_shoes": False,
+        "min_price": 100,
+        "max_price": 200
+    },
 }
 
 def generate_recommendcations(username):
@@ -102,7 +122,10 @@ def generate_recommendcations(username):
 
     # find the corresponding size
     index = all_lengths[all_lengths == normalized_length].index[0]
-    normalized_size = df2["US Men"][index]
+    if user_data["gender"] == "M":
+        normalized_size = df2["US Men"][index]
+    else:
+        normalized_size = df2["US Women"][index]
 
     # get all shoes which correspond with acceptable width
     index_acceptable_width = np.where( ((df["width_fitting"] == widths[0]) | (df["width_fitting"] == widths[1])) & (df["price"] < user_data["max_price"]) & (df["price"] > user_data["min_price"]) )[0]
@@ -128,10 +151,15 @@ def normalize_length(all_lengths, shoe_length):
             # if not, it must be closer to the current length being checked
             return length
 
-print("NICKS RECCOMENDATIONS")
-generate_recommendcations("Nicolas")
-print("OSCARS RECOMMENDATIONS")
-generate_recommendcations("Oscar")
+# print("NICK'S RECCOMENDATIONS")
+# generate_recommendcations("Nicolas")
+# print("OSCAR'S RECOMMENDATIONS")
+# generate_recommendcations("Oscar")
+# print("ANDREW'S RECOMMENDATIONS")
+# generate_recommendcations("Andrew")
+# print(df2)
+print("Nancy's recommendations")
+generate_recommendcations("Nancy")
 
 # run tests for normalize_length function: all passed
 
